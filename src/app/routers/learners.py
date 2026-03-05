@@ -8,7 +8,7 @@ from fastapi import APIRouter
 # from sqlmodel.ext.asyncio.session import AsyncSession
 #
 # from app.database import get_session
-# from app.db.learners import read_learners, create_learner
+from app.db.learners import read_learners, create_learner
 # from app.models.learner import Learner, LearnerCreate
 
 router = APIRouter()
@@ -19,13 +19,13 @@ router = APIRouter()
 
 # UNCOMMENT AND FILL IN
 #
-# @router.<method>("/<resource_name>", response_model=list[<resource_schema>])
-# async def <function_name>(
-#     <query_param>: <type> = None,
-#     session: AsyncSession = Depends(get_session),
-# ):
-#     """<docstring>"""
-#     return await <db_read_function>(session, <query_param>)
+@router.<method>("/<resource_name>", response_model=list[<resource_schema>])
+async def <function_name>(
+    <query_param>: <type> = None,
+    session: AsyncSession = Depends(get_session),
+):
+    """<docstring>"""
+    return await <db_read_function>(session, <query_param>)
 #
 # Reference:
 # items GET -> reads from items table, returns list[Item]
